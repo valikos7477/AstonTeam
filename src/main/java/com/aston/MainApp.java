@@ -15,8 +15,6 @@ public class MainApp {
         List<Integer> arrayAsList = Arrays.asList(array);
         arrayAsList.stream().forEach(System.out::println);
 
-        List<Sortable> list = new CustomArrayList<>();
-
 
     }
 }
