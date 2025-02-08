@@ -24,11 +24,10 @@ public class Human implements Sortable {
 
     @Override
     public String toString() {
-        return "Human{" +
-                "fullName='" + fullName + '\'' +
-                ", age=" + age +
-                ", gender=" + gender +
-                '}';
+        return "HUMAN#" +
+                "fullName=" + fullName  +
+                ";age=" + age +
+                ";gender=" + gender;
     }
 
     public void setFullName(String fullName) {

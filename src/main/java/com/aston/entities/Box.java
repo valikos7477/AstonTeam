@@ -27,11 +27,10 @@ public class Box implements Sortable {
 
     @Override
     public String toString() {
-        return "Box{" +
+        return "BOX#" +
                 "boxMaterial=" + boxMaterial +
-                ", storedMaterial=" + storedMaterial +
-                ", volume=" + volume +
-                '}';
+                ";storedMaterial=" + storedMaterial +
+                ";volume=" + volume;
     }
 
     public void setBoxMaterial(BoxMaterial boxMaterial) {

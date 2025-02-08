@@ -26,12 +26,11 @@ public class Animal implements Sortable {
 
     @Override
     public String toString() {
-        return "Animal{" +
+        return "ANIMAL#" +
                 "animalType=" + animalType +
-                ", eyeColor=" + eyeColor +
-                ", weight=" + weight +
-                ", isFur=" + isFur +
-                '}';
+                ";eyeColor=" + eyeColor +
+                ";weight=" + weight +
+                ";isFur=" + isFur;
     }
 
     public void setAnimalType(AnimalType animalType) {
