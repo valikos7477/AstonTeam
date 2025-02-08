@@ -1,11 +1,10 @@
 package com.aston.utils;
 
-import com.aston.entities.Sortable;
-import com.aston.tools.CustomArrayList;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import com.aston.entities.Sortable;
+import com.aston.tools.CustomArrayList;
 
 public abstract class FileOperations {
 
@@ -25,10 +24,5 @@ public abstract class FileOperations {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    public static CustomArrayList<Sortable> loadFromFile(String fileName, int numOfElements) {
-        CustomArrayList<Sortable> elements = new CustomArrayList<>();
-        return elements;
     }
 }
