@@ -4,6 +4,7 @@ import com.aston.entities.*;
 
 public class MainApp {
     public static void main(String[] args) {
+        System.out.println("*****************");
         AnimalBuilder animalBuilder = new AnimalBuilder();
         for (int i = 0; i < 100; i++) {
             Animal animal = animalBuilder.randomBuild();
