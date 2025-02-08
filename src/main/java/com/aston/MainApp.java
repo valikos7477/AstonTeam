@@ -3,18 +3,37 @@ package com.aston;
 import java.util.Arrays;
 import java.util.List;
 
-import com.aston.entities.Sortable;
+import com.aston.entities.*;
 import com.aston.utils.SortingEngine;
-import com.aston.tools.CustomArrayList;
 
 public class MainApp {
     public static void main(String[] args) {
-        Integer[] array = new Integer[] {1,34,2,200,124,44,22,325,200,200 };
+        AnimalBuilder animalBuilder = new AnimalBuilder();
+        for (int i = 0; i < 100; i++) {
+            Animal animal = animalBuilder.randomBuild();
+            System.out.println(animal);
+        }
 
-        SortingEngine.insertSorting(array);
-        List<Integer> arrayAsList = Arrays.asList(array);
-        arrayAsList.stream().forEach(System.out::println);
+        System.out.println("*****************");
+        BoxBuilder boxBuilder = new BoxBuilder();
+        for (int i = 0; i < 100; i++) {
+            Box box = boxBuilder.randomBuild();
+            System.out.println(box);
+        }
 
+        System.out.println("*****************");
+        HumanBuilder humanBuilder = new HumanBuilder();
+        for (int i = 0; i < 100; i++) {
+            Human human = humanBuilder.randomBuild();
+            System.out.println(human);
+        }
+
+        //        Animal animal1 = animalBuilder.setupType(AnimalType.BIRD)
+//                .setupEyeColor(EyeColor.BLACK)
+//                .setupWeight(123)
+//                .setupFur(false)
+//                .build();
+//        System.out.println(animal1);
 
     }
 }
