@@ -82,7 +82,7 @@ import java.util.Arrays;
         // поддержка итератора для форич цикла
         @Override
         public java.util.Iterator<E> iterator() {
-            return new java.util.Iterator<E>() {
+            return new java.util.Iterator<>() {
                 private int currentIndex = 0;
 
                 @Override
