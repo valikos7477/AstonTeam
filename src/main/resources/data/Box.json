@@ -1,0 +1,8 @@
+[
+  { "boxMaterial": "WOOD", "storedMaterial": "BEER", "volume": 150},
+  { "boxMaterial": "METAL", "storedMaterial": "WINE", "volume": 250},
+  { "boxMaterial": "PLASTIC", "storedMaterial": "FISH", "volume": 140},
+  { "boxMaterial": "METAL", "storedMaterial": "GAS", "volume": 300},
+  { "boxMaterial": "WOOD", "storedMaterial": "WINE", "volume": 20},
+  { "boxMaterial": "PLASTIC", "storedMaterial": "OIL", "volume": 145}
+]

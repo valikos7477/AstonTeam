@@ -1,0 +1,10 @@
+[
+  { "fullName": "Alice", "age": 25 , "gender": "FEMALE" },
+  { "fullName": "Vova", "age": 40, "gender": "MALE" },
+  { "fullName": "Pasha", "age": 10, "gender": "MALE" },
+  { "fullName": "Vasya", "age": 11, "gender": "MALE" },
+  { "fullName": "Roma", "age": 85, "gender": "MALE" },
+  { "fullName": "Katya", "age": 38 , "gender": "FEMALE" },
+  { "fullName": "Masha", "age": 14 , "gender": "FEMALE" },
+  { "fullName": "Ira", "age": 44 , "gender": "FEMALE" }
+]

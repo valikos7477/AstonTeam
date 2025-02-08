@@ -1,0 +1,8 @@
+[
+  { "animalType": "MAMMAL", "eyeColor": "black", "weight": 120, "isFur": true},
+  { "animalType": "AMPHIBIANS", "eyeColor": "green", "weight": 10, "isFur": false},
+  { "animalType": "REPTILES", "eyeColor": "gray", "weight": 12, "isFur": false},
+  { "animalType": "BIRD", "eyeColor": "red", "weight": 1, "isFur": false},
+  { "animalType": "MAMMAL", "eyeColor": "white", "weight": 150, "isFur": true},
+  { "animalType": "MAMMAL", "eyeColor": "black", "weight": 254, "isFur": true}
+]
