@@ -1,2 +1,6 @@
-package com.aston.enums;public class Gender {
+package com.aston.enums;
+
+public enum Gender {
+    MALE,
+    FEMALE
 }

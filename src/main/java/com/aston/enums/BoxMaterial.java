@@ -1,2 +1,7 @@
-package com.aston.enums;public class BoxMaterial {
+package com.aston.enums;
+
+public enum BoxMaterial {
+    WOOD,
+    METAL,
+    PLASTIC
 }
