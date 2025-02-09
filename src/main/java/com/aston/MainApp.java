@@ -1,13 +1,13 @@
 package com.aston;
 
+import java.util.List;
+import java.util.ArrayList;
 import com.aston.entities.*;
 import com.aston.utils.SortingEngine;
 import com.aston.utils.sorting.animals.*;
 import com.aston.utils.sorting.boxes.*;
 import com.aston.utils.sorting.humans.*;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainApp {
     public static void main(String[] args) {
@@ -15,7 +15,7 @@ public class MainApp {
         AnimalBuilder animalBuilder = new AnimalBuilder();
         for (int i = 0; i < 10; i++) {
             Animal animal = animalBuilder.randomBuild();
-            animal.setupSortingStrategy(new CompareAnimalByWeight());
+            animal.setupSortingStrategy(new CompareAnimalByType());
             animals.add(animal);
         }
 
@@ -27,7 +27,7 @@ public class MainApp {
         BoxBuilder boxBuilder = new BoxBuilder();
         for (int i = 0; i < 10; i++) {
             Box box = boxBuilder.randomBuild();
-            box.setupSortingStrategy(new CompareBoxByStoredMaterial());
+            box.setupSortingStrategy(new CompareBoxByMaterial());
             boxes.add(box);
         }
 
@@ -39,7 +39,7 @@ public class MainApp {
         HumanBuilder humanBuilder = new HumanBuilder();
         for (int i = 0; i < 10; i++) {
             Human human = humanBuilder.randomBuild();
-            human.setupSortingStrategy(new CompareByGender());
+            human.setupSortingStrategy(new CompareByName());
             humans.add(human);
         }
 
