@@ -1,25 +1,23 @@
 package com.aston.entities;
 
 import com.aston.enums.Gender;
+import com.aston.utils.sorting.humans.HumanSortingRule;
 
-public class Human implements Sortable {
+public class Human implements Comparable {
     private String fullName;
     private Integer age;
     private Gender gender;
 
-    @Override
-    public void sortByFirstField() {
+    private HumanSortingRule strategy;
 
+    public void setupSortingStrategy(HumanSortingRule strategy) {
+        this.strategy = strategy;
     }
 
     @Override
-    public void sortBySecondField() {
-
-    }
-
-    @Override
-    public void sortByThirdField() {
-
+    public int compareTo(Object o) {
+        Human obj = (Human) o;
+        return strategy.doSortingByField(this, obj);
     }
 
     @Override
@@ -42,5 +40,15 @@ public class Human implements Sortable {
         this.gender = gender;
     }
 
+    public String getFullName() {
+        return fullName;
+    }
 
+    public Integer getAge() {
+        return age;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
 }

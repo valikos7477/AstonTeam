@@ -1,18 +1,17 @@
 package com.aston.utils;
 
-import com.aston.entities.Sortable;
+import java.util.List;
 
 public abstract class SortingEngine {
-    public static void insertSorting(Sortable[] array) {
-//        for (int i = 1; i < array.length; i++) {
-//            int current = array[i].;
-//            int j = i - 1;
-//            while(j >= 0 && current < array[j]) {
-//                array[j+1] = array[j];
-//                j--;
-//            }
-//            array[j+1] = current;
-//        }
-
+    public static <T extends Comparable<T>> void insertSorting (List<T> list) {
+        for (int i = 1; i < list.size(); i++) {
+            T current = list.get(i);
+            int j = i - 1;
+            while(j >= 0 && current.compareTo(list.get(j)) < 0) {
+                list.set(j+1, list.get(j));
+                j--;
+            }
+            list.set(j+1, current);
+        }
     }
 }

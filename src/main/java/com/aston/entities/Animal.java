@@ -2,35 +2,24 @@ package com.aston.entities;
 
 import com.aston.enums.AnimalType;
 import com.aston.enums.EyeColor;
+import com.aston.utils.sorting.animals.AnimalSortingRule;
 
-public class Animal implements Sortable {
+public class Animal implements Comparable {
     private AnimalType animalType;
     private EyeColor eyeColor;
     private Integer weight;
     private Boolean isFur;
 
-    @Override
-    public void sortByFirstField() {
+    private AnimalSortingRule strategy;
 
+    @Override
+    public int compareTo(Object o) {
+        Animal obj = (Animal) o;
+        return strategy.doSortingByField(this, obj);
     }
 
-    @Override
-    public void sortBySecondField() {
-
-    }
-
-    @Override
-    public void sortByThirdField() {
-
-    }
-
-    @Override
-    public String toString() {
-        return "ANIMAL#" +
-                "animalType=" + animalType +
-                ";eyeColor=" + eyeColor +
-                ";weight=" + weight +
-                ";isFur=" + isFur;
+    public void setupSortingStrategy(AnimalSortingRule strategy) {
+        this.strategy = strategy;
     }
 
     public void setAnimalType(AnimalType animalType) {
@@ -47,5 +36,26 @@ public class Animal implements Sortable {
 
     public void setFur(Boolean fur) {
         isFur = fur;
+    }
+
+    public AnimalType getAnimalType() {
+        return animalType;
+    }
+
+    public EyeColor getEyeColor() {
+        return eyeColor;
+    }
+
+    public Integer getWeight() {
+        return weight;
+    }
+
+    @Override
+    public String toString() {
+        return "ANIMAL#" +
+                "animalType=" + animalType +
+                ";eyeColor=" + eyeColor +
+                ";weight=" + weight +
+                ";isFur=" + isFur;
     }
 }
