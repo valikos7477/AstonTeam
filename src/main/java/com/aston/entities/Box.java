@@ -8,8 +8,6 @@ public class Box implements Sortable {
     private StoredMaterial storedMaterial;
     private Integer volume;
 
-
-
     @Override
     public void sortByFirstField() {
 
