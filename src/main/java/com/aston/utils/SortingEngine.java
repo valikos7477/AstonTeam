@@ -1,5 +1,12 @@
 package com.aston.utils;
 
+import com.aston.entities.Animal;
+import com.aston.entities.Box;
+import com.aston.entities.Human;
+import com.aston.utils.sorting.animals.AnimalSortingRule;
+import com.aston.utils.sorting.boxes.BoxSortingRule;
+import com.aston.utils.sorting.humans.HumanSortingRule;
+
 import java.util.List;
 
 public abstract class SortingEngine {
@@ -13,5 +20,23 @@ public abstract class SortingEngine {
             }
             list.set(j+1, current);
         }
+    }
+
+    public static void changeHumansSortingOrder (List<Comparable> list, HumanSortingRule newStrategy) {
+        list.forEach( elem -> {
+            ((Human)elem).setupSortingStrategy(newStrategy);
+        });
+    }
+
+    public static void changeAnimalsSortingOrder (List<Comparable> list, AnimalSortingRule newStrategy) {
+        list.forEach( elem -> {
+            ((Animal)elem).setupSortingStrategy(newStrategy);
+        });
+    }
+
+    public static void changeBoxesSortingOrder (List<Comparable> list, BoxSortingRule newStrategy) {
+        list.forEach( elem -> {
+            ((Box)elem).setupSortingStrategy(newStrategy);
+        });
     }
 }

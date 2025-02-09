@@ -3,6 +3,7 @@ package com.aston.entities;
 import com.aston.enums.AnimalType;
 import com.aston.enums.EyeColor;
 import com.aston.utils.RandomTools;
+import com.aston.utils.sorting.animals.CompareAnimalByWeight;
 
 public class AnimalBuilder {
     private AnimalType type;
@@ -36,6 +37,7 @@ public class AnimalBuilder {
         animal.setEyeColor(color);
         animal.setWeight(weight);
         animal.setFur(isFur);
+        animal.setupSortingStrategy(new CompareAnimalByWeight());
         return animal;
     }
 
@@ -46,6 +48,7 @@ public class AnimalBuilder {
         animal.setEyeColor(RandomTools.getRandomEyeColor());
         animal.setWeight(RandomTools.randInt(1, 5000));
         animal.setFur(RandomTools.randBoolean());
+        animal.setupSortingStrategy(new CompareAnimalByWeight());
         return animal;
     }
 }

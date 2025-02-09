@@ -3,6 +3,7 @@ package com.aston.entities;
 import com.aston.enums.BoxMaterial;
 import com.aston.enums.StoredMaterial;
 import com.aston.utils.RandomTools;
+import com.aston.utils.sorting.boxes.CompareBoxByVolume;
 
 public class BoxBuilder {
     private BoxMaterial boxMaterial;
@@ -29,6 +30,7 @@ public class BoxBuilder {
         box.setBoxMaterial(boxMaterial);
         box.setStoredMaterial(storedMaterial);
         box.setVolume(volume);
+        box.setupSortingStrategy(new CompareBoxByVolume());
         return box;
     }
 
@@ -37,6 +39,7 @@ public class BoxBuilder {
         box.setBoxMaterial(RandomTools.getRandomBoxMaterial());
         box.setStoredMaterial(RandomTools.getRandomStoredMaterial());
         box.setVolume(RandomTools.randInt(1, 1000));
+        box.setupSortingStrategy(new CompareBoxByVolume());
         return box;
     }
 }
