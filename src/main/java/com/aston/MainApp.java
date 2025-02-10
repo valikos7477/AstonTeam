@@ -1,29 +1,65 @@
 package com.aston;
 
 import java.util.List;
+import java.util.Scanner;
 
+import com.aston.datatypes.enums.SortingMode;
 import com.aston.entities.*;
 import com.aston.datatypes.collections.CustomArrayList;
+import com.aston.strategy.humans.CompareByAge;
 import com.aston.utils.FileOperations;
+import com.aston.utils.SearchEngine;
 import com.aston.utils.SortingEngine;
 
 
 public class MainApp {
     public static void main(String[] args) {
-        List<Comparable> humans = new CustomArrayList<>();
-        HumanBuilder humanBuilder = new HumanBuilder();
-        for (int i = 0; i < 100; i++) {
-            Human human = humanBuilder.randomBuild();
-            humans.add(human);
+        List<Comparable> animals = new CustomArrayList<>();
+        AnimalBuilder animalBuilder = new AnimalBuilder();
+        for (int i = 0; i < 10; i++) {
+            Animal animal = animalBuilder.randomBuild();
+            animals.add(animal);
         }
 
-        SortingEngine.insertSorting(humans);
+        SortingEngine.sort(animals, SortingMode.ANIMAL_WEIGHT);
         System.out.println("\n*************");
+        animals.forEach(System.out::println);
+
+        SortingEngine.sort(animals, SortingMode.ANIMAL_TYPE);
+        System.out.println("\n--------------");
+        animals.forEach(System.out::println);
+
+        SortingEngine.sort(animals, SortingMode.ANIMAL_WEIGHT);
+        System.out.println("\n==========");
+        animals.forEach(System.out::println);
+
+        FileOperations.saveToFile(animals, "animals.txt", false);
+
+        System.out.println("\n-------------");
+        List<Comparable> humans = FileOperations.loadFromFile("humans.txt");
+        SortingEngine.sort(humans, SortingMode.HUMAN_NAME);
+        System.out.println("\n==========");
         humans.forEach(System.out::println);
-        FileOperations.saveToFile(humans, "humans.txt", false);
 
+        SortingEngine.sort(humans, SortingMode.HUMAN_AGE);
+        System.out.println("\n==========");
+        humans.forEach(System.out::println);
 
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите возраст: ");
+        String age = scanner.nextLine().toLowerCase();
 
+        HumanBuilder humanBuilder = new HumanBuilder();
+        Human human = humanBuilder.setupAge(Integer.valueOf(age)).build();
+        SortingEngine.sort(humans, SortingMode.HUMAN_AGE);
+
+        int result = SearchEngine.search(humans, human);
+
+        System.out.println(human+ " - }}}" + result);
+
+        //
+//        System.out.println("+++++");
+//        humans.forEach(System.out::println);
 
 //        SortingEngine.changeHumansSortingOrder(humans, new CompareByAge());
 //        SortingEngine.insertSorting(humans);
