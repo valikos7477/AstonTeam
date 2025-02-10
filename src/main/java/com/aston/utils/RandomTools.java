@@ -1,7 +1,7 @@
 package com.aston.utils;
 
 import java.util.Random;
-import com.aston.enums.*;
+import com.aston.datatypes.enums.*;
 
 public abstract class RandomTools {
     public static AnimalType getRandomAnimalType() {

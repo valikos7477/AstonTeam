@@ -1,7 +1,7 @@
 package com.aston.entities;
 
-import com.aston.enums.AnimalType;
-import com.aston.enums.EyeColor;
+import com.aston.datatypes.enums.AnimalType;
+import com.aston.datatypes.enums.EyeColor;
 import com.aston.strategy.animals.AnimalSortingRule;
 
 public class Animal implements Comparable {

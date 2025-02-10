@@ -1,4 +1,4 @@
-package com.aston.enums;
+package com.aston.datatypes.enums;
 
 public enum AnimalType {
     MAMMAL,

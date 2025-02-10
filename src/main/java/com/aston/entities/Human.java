@@ -1,6 +1,6 @@
 package com.aston.entities;
 
-import com.aston.enums.Gender;
+import com.aston.datatypes.enums.Gender;
 import com.aston.strategy.humans.HumanSortingRule;
 
 public class Human implements Comparable {
