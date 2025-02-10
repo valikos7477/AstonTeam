@@ -3,6 +3,7 @@ package com.aston.utils;
 import com.aston.entities.Animal;
 import com.aston.entities.Box;
 import com.aston.entities.Human;
+import com.aston.tools.CustomArrayList;
 import com.aston.utils.sorting.animals.AnimalSortingRule;
 import com.aston.utils.sorting.boxes.BoxSortingRule;
 import com.aston.utils.sorting.humans.HumanSortingRule;
@@ -11,6 +12,7 @@ import java.util.List;
 
 public abstract class SortingEngine {
     public static <T extends Comparable<T>> void insertSorting (List<T> list) {
+    //public static <T extends Comparable<T>> void insertSorting (CustomArrayList<T> list) {
         for (int i = 1; i < list.size(); i++) {
             T current = list.get(i);
             int j = i - 1;

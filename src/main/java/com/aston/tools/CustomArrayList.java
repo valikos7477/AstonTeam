@@ -1,6 +1,5 @@
 package com.aston.tools;
 
-
 import java.util.AbstractList;
 import java.util.Arrays;
 
@@ -29,16 +28,10 @@ import java.util.Arrays;
         }
 
         @Override
-        public void add(int index, E element) {
-            if (index > size || index < 0) {
-                throw new IndexOutOfBoundsException("Index: " + index + ", Size " + size);
-            }
-            ensureCapacity();
-            for (int i = size - 1; i >= index; i--) {
-                elements[i + 1] = elements[i];
-            }
+        public E set(int index, E element) {
+            E oldValue = (E) elements[index];
             elements[index] = element;
-            size++;
+            return oldValue;
         }
 
         @Override
@@ -54,7 +47,6 @@ import java.util.Arrays;
             return (E) item;
         }
 
-        // Ув.ёмкости массива
         private void ensureCapacity() {
             if (size == elements.length) {
                 int newSize = elements.length * 2;
@@ -62,7 +54,6 @@ import java.util.Arrays;
             }
         }
 
-        // Добавление метода для добавления элемента в конец списка, чтобы упростить использование класса
         @Override
         public boolean add(E element) {
             ensureCapacity();
@@ -70,7 +61,6 @@ import java.util.Arrays;
             return true;
         }
 
-        // Метод для очистки списка
         @Override
         public void clear() {
             for (int i = 0; i < size; i++) {
@@ -79,7 +69,6 @@ import java.util.Arrays;
             size = 0;
         }
 
-        // поддержка итератора для форич цикла
         @Override
         public java.util.Iterator<E> iterator() {
             return new java.util.Iterator<>() {

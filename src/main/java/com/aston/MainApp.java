@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import com.aston.entities.*;
 import com.aston.enums.Gender;
+import com.aston.tools.CustomArrayList;
 import com.aston.utils.SearchEngine;
 import com.aston.utils.SortingEngine;
 import com.aston.utils.sorting.animals.*;
@@ -16,42 +17,44 @@ import com.aston.utils.sorting.humans.*;
 public class MainApp {
     public static void main(String[] args) {
 
-        List<Comparable> animals = new ArrayList<>();
-        AnimalBuilder animalBuilder = new AnimalBuilder();
+        List<Comparable> humans = new CustomArrayList<>();
+        HumanBuilder humanBuilder = new HumanBuilder();
 
-        for (int i = 0; i < 10; i++) {
-            Animal animal = animalBuilder.randomBuild();
-            animals.add(animal);
+        for (int i = 0; i < 100; i++) {
+            Human human = humanBuilder.randomBuild();
+            humans.add(human);
         }
 
-        SortingEngine.insertSorting(animals);
+        SortingEngine.insertSorting(humans);
         System.out.println("\n*************");
-        animals.forEach(System.out::println);
+        humans.forEach(System.out::println);
 
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Введите вес животного: ");
-        String animalWeight = scanner.nextLine().toLowerCase();
-
-        Animal animal2 = animalBuilder.setupWeight(Integer.valueOf(animalWeight)).build();
-
-        int result2 = SearchEngine.search(animals, animal2);
-        System.out.println(animal2 + " - }}}" + result2);
-
-        SortingEngine.changeAnimalsSortingOrder(animals, new CompareAnimalByEyeColor());
-        SortingEngine.insertSorting(animals);
-        System.out.println("\n*************");
-        animals.forEach(System.out::println);
-
-        SortingEngine.changeAnimalsSortingOrder(animals, new CompareAnimalByType());
-        SortingEngine.insertSorting(animals);
-        System.out.println("\n*************");
-        animals.forEach(System.out::println);
-
-        SortingEngine.changeAnimalsSortingOrder(animals, new CompareAnimalByWeight());
-        SortingEngine.insertSorting(animals);
-        System.out.println("\n*************");
-        animals.forEach(System.out::println);
+//
+//        Scanner scanner = new Scanner(System.in);
+//
+//        System.out.print("Введите вес животного: ");
+//        String animalWeight = scanner.nextLine().toLowerCase();
+//
+//        Animal animal2 = animalBuilder.setupWeight(Integer.valueOf(animalWeight)).build();
+//
+//        int result2 = SearchEngine.search(animals, animal2);
+//        System.out.println(animal2 + " - }}}" + result2);
+//
+//        SortingEngine.changeAnimalsSortingOrder(animals, new CompareAnimalByEyeColor());
+//        SortingEngine.insertSorting(animals);
+//        System.out.println("\n*************");
+//        animals.forEach(System.out::println);
+//
+//        SortingEngine.changeAnimalsSortingOrder(animals, new CompareAnimalByType());
+//        SortingEngine.insertSorting(animals);
+//        System.out.println("\n*************");
+//        animals.forEach(System.out::println);
+//
+//        SortingEngine.changeAnimalsSortingOrder(animals, new CompareAnimalByWeight());
+//        SortingEngine.insertSorting(animals);
+//        System.out.println("\n*************");
+//        animals.forEach(System.out::println);
 
 //        Human human  = (Human) humans.get(3);
 //        int result = SearchEngine.search(humans, human);
