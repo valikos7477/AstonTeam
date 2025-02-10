@@ -3,7 +3,7 @@ package com.aston;
 import java.util.List;
 
 import com.aston.entities.*;
-import com.aston.datatypes.CustomArrayList;
+import com.aston.datatypes.collections.CustomArrayList;
 import com.aston.utils.FileOperations;
 import com.aston.utils.SortingEngine;
 

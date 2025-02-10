@@ -1,4 +1,4 @@
-package com.aston.datatypes;
+package com.aston.datatypes.collections;
 
 import java.util.AbstractList;
 import java.util.Arrays;
