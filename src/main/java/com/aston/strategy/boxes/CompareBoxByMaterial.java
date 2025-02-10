@@ -1,4 +1,4 @@
-package com.aston.utils.sorting.boxes;
+package com.aston.strategy.boxes;
 
 import com.aston.entities.Box;
 

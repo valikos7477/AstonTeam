@@ -1,4 +1,4 @@
-package com.aston.utils.sorting.humans;
+package com.aston.strategy.humans;
 
 import com.aston.entities.Human;
 

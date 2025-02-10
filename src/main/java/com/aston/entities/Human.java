@@ -1,7 +1,7 @@
 package com.aston.entities;
 
 import com.aston.enums.Gender;
-import com.aston.utils.sorting.humans.HumanSortingRule;
+import com.aston.strategy.humans.HumanSortingRule;
 
 public class Human implements Comparable {
     private String fullName;

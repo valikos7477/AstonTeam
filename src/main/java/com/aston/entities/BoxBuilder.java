@@ -3,7 +3,7 @@ package com.aston.entities;
 import com.aston.enums.BoxMaterial;
 import com.aston.enums.StoredMaterial;
 import com.aston.utils.RandomTools;
-import com.aston.utils.sorting.boxes.CompareBoxByVolume;
+import com.aston.strategy.boxes.CompareBoxByVolume;
 
 public class BoxBuilder {
     private BoxMaterial boxMaterial;

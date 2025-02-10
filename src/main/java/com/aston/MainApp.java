@@ -1,25 +1,17 @@
 package com.aston;
 
 import java.util.List;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 import com.aston.entities.*;
-import com.aston.enums.Gender;
-import com.aston.tools.CustomArrayList;
-import com.aston.utils.SearchEngine;
+import com.aston.datatypes.CustomArrayList;
+import com.aston.utils.FileOperations;
 import com.aston.utils.SortingEngine;
-import com.aston.utils.sorting.animals.*;
-import com.aston.utils.sorting.boxes.*;
-import com.aston.utils.sorting.humans.*;
 
 
 public class MainApp {
     public static void main(String[] args) {
-
         List<Comparable> humans = new CustomArrayList<>();
         HumanBuilder humanBuilder = new HumanBuilder();
-
         for (int i = 0; i < 100; i++) {
             Human human = humanBuilder.randomBuild();
             humans.add(human);
@@ -28,8 +20,14 @@ public class MainApp {
         SortingEngine.insertSorting(humans);
         System.out.println("\n*************");
         humans.forEach(System.out::println);
+        FileOperations.saveToFile(humans, "humans.txt", false);
 
 
+
+
+//        SortingEngine.changeHumansSortingOrder(humans, new CompareByAge());
+//        SortingEngine.insertSorting(humans);
+//        FileOperations.saveToFile(humans, "humans.txt", true);
 //
 //        Scanner scanner = new Scanner(System.in);
 //

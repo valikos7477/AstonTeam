@@ -2,7 +2,7 @@ package com.aston.entities;
 
 import com.aston.enums.BoxMaterial;
 import com.aston.enums.StoredMaterial;
-import com.aston.utils.sorting.boxes.BoxSortingRule;
+import com.aston.strategy.boxes.BoxSortingRule;
 
 public class Box implements Comparable {
     private BoxMaterial boxMaterial;

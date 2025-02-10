@@ -1,4 +1,4 @@
-package com.aston.utils.sorting.animals;
+package com.aston.strategy.animals;
 
 import com.aston.entities.Animal;
 

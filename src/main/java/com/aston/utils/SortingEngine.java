@@ -3,10 +3,9 @@ package com.aston.utils;
 import com.aston.entities.Animal;
 import com.aston.entities.Box;
 import com.aston.entities.Human;
-import com.aston.tools.CustomArrayList;
-import com.aston.utils.sorting.animals.AnimalSortingRule;
-import com.aston.utils.sorting.boxes.BoxSortingRule;
-import com.aston.utils.sorting.humans.HumanSortingRule;
+import com.aston.strategy.animals.AnimalSortingRule;
+import com.aston.strategy.boxes.BoxSortingRule;
+import com.aston.strategy.humans.HumanSortingRule;
 
 import java.util.List;
 

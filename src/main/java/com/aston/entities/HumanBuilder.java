@@ -2,7 +2,7 @@ package com.aston.entities;
 
 import com.aston.enums.Gender;
 import com.aston.utils.RandomTools;
-import com.aston.utils.sorting.humans.CompareByName;
+import com.aston.strategy.humans.CompareByName;
 
 public class HumanBuilder {
     private String fullName;
@@ -41,12 +41,7 @@ public class HumanBuilder {
         human.setupSortingStrategy(new CompareByName());
 
         String name = (gender == Gender.MALE) ? RandomTools.getRandomMaleName() : RandomTools.getRandomFemaleName();
-//        if (gender == Gender.MALE) {
-//            name = RandomTools.getRandomMaleName();
-//        }
-//        else {
-//            name = RandomTools.getRandomFemaleName();
-//        }
+
         human.setFullName(name.toLowerCase());
 
         return human;

@@ -3,7 +3,7 @@ package com.aston.entities;
 import com.aston.enums.AnimalType;
 import com.aston.enums.EyeColor;
 import com.aston.utils.RandomTools;
-import com.aston.utils.sorting.animals.CompareAnimalByWeight;
+import com.aston.strategy.animals.CompareAnimalByWeight;
 
 public class AnimalBuilder {
     private AnimalType type;
