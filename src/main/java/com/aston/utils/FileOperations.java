@@ -5,7 +5,6 @@ import com.aston.datatypes.enums.*;
 import com.aston.entities.*;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.List;
 
 public abstract class FileOperations {
@@ -82,6 +81,8 @@ public abstract class FileOperations {
                     .build();
         }
     }
+
+
     public static List<Comparable> loadFromFile(String inputFileName) {
         List<Comparable> elements = new CustomArrayList<>();
 

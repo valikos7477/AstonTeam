@@ -8,17 +8,90 @@ import com.aston.entities.*;
 import com.aston.datatypes.collections.CustomArrayList;
 import com.aston.strategy.humans.CompareByAge;
 import com.aston.utils.FileOperations;
+import com.aston.utils.OperationRunner;
 import com.aston.utils.SearchEngine;
 import com.aston.utils.SortingEngine;
 
 
 public class MainApp {
     public static void main(String[] args) {
-        System.out.println("\n-------------");
-        List<Comparable> elements = FileOperations.loadFromFile("examples_humans.txt");
-        SortingEngine.sort(elements, SortingMode.HUMAN_AGE);
-        System.out.println("\n==========");
-        elements.forEach(System.out::println);
+        int entityChoice;
+        int loadFromChoice;
+        int numberOfElements;
+        OperationRunner runner = new OperationRunner();
+
+        while (true) {
+            try {
+                System.out.println("\nС чем будем работать:\n 1. Люди\n 2. Животные\n 3. Бочки\n 0. Выход\n");
+                Scanner scanner = new Scanner(System.in);
+                System.out.print("Ваш выбор: ");
+                String entityChoiceStr = scanner.nextLine().toLowerCase();
+                entityChoice = Integer.valueOf(entityChoiceStr);
+            } catch (NumberFormatException e) {
+                System.out.println("\nНекорректный ввод значения. Введите значение от 1 до 3, для выхода - 0");
+                continue;
+            }
+            if (entityChoice == 0) break;
+            if (entityChoice < 0 || entityChoice > 3) {
+                System.out.println("\nНекорректный ввод значения. Введите значение от 1 до 3, для выхода - 0");
+                continue;
+            }
+
+            try {
+                System.out.println("\nМетод ввода данных:\n 1. Ручной\n 2. Автоматизированный\n 3. Из файла\n 0. Выход\n");
+                Scanner scanner = new Scanner(System.in);
+                System.out.print("Ваш выбор: ");
+                String loadFromStr = scanner.nextLine().toLowerCase();
+                loadFromChoice = Integer.valueOf(loadFromStr);
+            } catch (NumberFormatException e) {
+                System.out.println("\nНекорректный ввод значения. Введите значение от 1 до 3, для выхода - 0");
+                continue;
+            }
+
+            if (loadFromChoice == 0) break;
+            if (loadFromChoice < 0 || loadFromChoice > 3) {
+                System.out.println("\nНекорректный ввод значения. Введите значение от 1 до 3, для выхода - 0");
+                continue;
+            }
+
+            try {
+                System.out.println("\nВведите количество элементов для ввода:\n");
+                Scanner scanner = new Scanner(System.in);
+                System.out.print("Количество элементов для ввода: ");
+                String numberOfElementsStr = scanner.nextLine().toLowerCase();
+                numberOfElements = Integer.valueOf(numberOfElementsStr);
+            } catch (NumberFormatException e) {
+                System.out.println("\nНекорректный ввод значения. Введите целочисленное значение");
+                continue;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//        System.out.println("\n-------------");
+//        List<Comparable> elements = FileOperations.loadFromFile("examples_humans.txt");
+//        SortingEngine.sort(elements, SortingMode.HUMAN_AGE);
+//        System.out.println("\n==========");
+//        elements.forEach(System.out::println);
 
 //        List<Comparable> animals = new CustomArrayList<>();
 //        AnimalBuilder animalBuilder = new AnimalBuilder();
