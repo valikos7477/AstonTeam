@@ -14,27 +14,62 @@ import com.aston.utils.SortingEngine;
 
 public class MainApp {
     public static void main(String[] args) {
-        List<Comparable> animals = new CustomArrayList<>();
-        AnimalBuilder animalBuilder = new AnimalBuilder();
-        for (int i = 0; i < 10; i++) {
-            Animal animal = animalBuilder.randomBuild();
-            animals.add(animal);
-        }
+        System.out.println("\n-------------");
+        List<Comparable> elements = FileOperations.loadFromFile("examples_humans.txt");
+        SortingEngine.sort(elements, SortingMode.HUMAN_AGE);
+        System.out.println("\n==========");
+        elements.forEach(System.out::println);
 
-        System.out.println("\n*************");
-        animals.forEach(System.out::println);
+//        List<Comparable> animals = new CustomArrayList<>();
+//        AnimalBuilder animalBuilder = new AnimalBuilder();
+//        for (int i = 0; i < 1000; i++) {
+//            Animal animal = animalBuilder.randomBuild();
+//            animals.add(animal);
+//        }
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Введите вес животного: ");
-        String weight = scanner.nextLine().toLowerCase();
+//        FileOperations.saveToFile(animals, "examples_animals.txt", false);
+
+        //
+//        SortingEngine.sort(humans, SortingMode.HUMAN_AGE);
+//        System.out.println("\n==========");
+//        humans.forEach(System.out::println);
+//
+//        SortingEngine.sort(humans, SortingMode.HUMAN_GENDER);
+//        System.out.println("\n==========");
+//        humans.forEach(System.out::println);
 
 
-        AnimalBuilder animalBuilder2 = new AnimalBuilder();
-        Animal animal = animalBuilder2.setupWeight(Integer.valueOf(weight)).build();
-        int result = SearchEngine.search(animals, animal, SortingMode.ANIMAL_WEIGHT);
-        System.out.println("\n*************");
-        animals.forEach(System.out::println);
-        System.out.println(animal + " - }}}" + result);
+//        System.out.println("\n-------------");
+//        List<Comparable> animals = FileOperations.loadFromFile("animals.txt");
+//        animals.forEach(System.out::println);
+//
+//        SortingEngine.sort(animals, SortingMode.ANIMAL_TYPE);
+//        System.out.println("\n==========");
+//        animals.forEach(System.out::println);
+
+
+
+//        List<Comparable> animals = new CustomArrayList<>();
+//        AnimalBuilder animalBuilder = new AnimalBuilder();
+//        for (int i = 0; i < 10; i++) {
+//            Animal animal = animalBuilder.randomBuild();
+//            animals.add(animal);
+//        }
+//
+//        System.out.println("\n*************");
+//        animals.forEach(System.out::println);
+//
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.print("Введите вес животного: ");
+//        String weight = scanner.nextLine().toLowerCase();
+//
+//
+//        AnimalBuilder animalBuilder2 = new AnimalBuilder();
+//        Animal animal = animalBuilder2.setupWeight(Integer.valueOf(weight)).build();
+//        int result = SearchEngine.search(animals, animal, SortingMode.ANIMAL_WEIGHT);
+//        System.out.println("\n*************");
+//        animals.forEach(System.out::println);
+//        System.out.println(animal + " - }}}" + result);
 
 //        SortingEngine.sort(animals, SortingMode.ANIMAL_WEIGHT);
 //        System.out.println("\n*************");
