@@ -16,6 +16,13 @@ import java.util.Arrays;
             elements = new Object[capacity];
         }
 
+        private void ensureCapacity() {
+            if (size == elements.length) {
+                int newSize = elements.length * 2;
+                elements = Arrays.copyOf(elements, newSize);
+            }
+        }
+
         @Override
         public int size() { return size; }
 
@@ -45,13 +52,6 @@ import java.util.Arrays;
             }
             size--;
             return (E) item;
-        }
-
-        private void ensureCapacity() {
-            if (size == elements.length) {
-                int newSize = elements.length * 2;
-                elements = Arrays.copyOf(elements, newSize);
-            }
         }
 
         @Override

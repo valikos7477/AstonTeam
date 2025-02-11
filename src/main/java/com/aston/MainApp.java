@@ -21,41 +21,54 @@ public class MainApp {
             animals.add(animal);
         }
 
-        SortingEngine.sort(animals, SortingMode.ANIMAL_WEIGHT);
         System.out.println("\n*************");
         animals.forEach(System.out::println);
 
-        SortingEngine.sort(animals, SortingMode.ANIMAL_TYPE);
-        System.out.println("\n--------------");
-        animals.forEach(System.out::println);
-
-        SortingEngine.sort(animals, SortingMode.ANIMAL_WEIGHT);
-        System.out.println("\n==========");
-        animals.forEach(System.out::println);
-
-        FileOperations.saveToFile(animals, "animals.txt", false);
-
-        System.out.println("\n-------------");
-        List<Comparable> humans = FileOperations.loadFromFile("humans.txt");
-        SortingEngine.sort(humans, SortingMode.HUMAN_NAME);
-        System.out.println("\n==========");
-        humans.forEach(System.out::println);
-
-        SortingEngine.sort(humans, SortingMode.HUMAN_AGE);
-        System.out.println("\n==========");
-        humans.forEach(System.out::println);
-
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Введите возраст: ");
-        String age = scanner.nextLine().toLowerCase();
+        System.out.print("Введите вес животного: ");
+        String weight = scanner.nextLine().toLowerCase();
 
-        HumanBuilder humanBuilder = new HumanBuilder();
-        Human human = humanBuilder.setupAge(Integer.valueOf(age)).build();
-        SortingEngine.sort(humans, SortingMode.HUMAN_AGE);
 
-        int result = SearchEngine.search(humans, human);
+        AnimalBuilder animalBuilder2 = new AnimalBuilder();
+        Animal animal = animalBuilder2.setupWeight(Integer.valueOf(weight)).build();
+        int result = SearchEngine.search(animals, animal, SortingMode.ANIMAL_WEIGHT);
+        System.out.println("\n*************");
+        animals.forEach(System.out::println);
+        System.out.println(animal + " - }}}" + result);
 
-        System.out.println(human+ " - }}}" + result);
+//        SortingEngine.sort(animals, SortingMode.ANIMAL_WEIGHT);
+//        System.out.println("\n*************");
+//        animals.forEach(System.out::println);
+//
+//        SortingEngine.sort(animals, SortingMode.ANIMAL_TYPE);
+//        System.out.println("\n--------------");
+//        animals.forEach(System.out::println);
+//
+//        SortingEngine.sort(animals, SortingMode.ANIMAL_WEIGHT);
+//        System.out.println("\n==========");
+//        animals.forEach(System.out::println);
+//
+//        FileOperations.saveToFile(animals, "animals.txt", false);
+//
+//        System.out.println("\n-------------");
+//        List<Comparable> humans = FileOperations.loadFromFile("humans.txt");
+//        SortingEngine.sort(humans, SortingMode.HUMAN_NAME);
+//        System.out.println("\n==========");
+//        humans.forEach(System.out::println);
+//
+//        SortingEngine.sort(humans, SortingMode.HUMAN_AGE);
+//        System.out.println("\n==========");
+//        humans.forEach(System.out::println);
+
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.print("Введите возраст: ");
+//        String age = scanner.nextLine().toLowerCase();
+//
+//        HumanBuilder humanBuilder = new HumanBuilder();
+//        Human human = humanBuilder.setupAge(Integer.valueOf(age)).build();
+//
+//        int result = SearchEngine.search(humans, human, SortingMode.HUMAN_AGE);
+//        System.out.println(human+ " - }}}" + result);
 
         //
 //        System.out.println("+++++");
