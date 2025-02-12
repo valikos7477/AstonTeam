@@ -1,66 +1,55 @@
 package com.aston.entities;
 
-import com.aston.enums.BoxMaterial;
-import com.aston.enums.StoredMaterial;
+import com.aston.Data.enums.BoxMaterial;
+import com.aston.Data.enums.StoredMaterial;
+import com.aston.Sorting.Boxes.BoxSorting;
 
-public class Box implements Sortable {
+public class Box implements Comparable {
+    private BoxMaterial boxMaterial;
+    private StoredMaterial storedMaterial;
+    private Integer volume;
 
-    private final BoxMaterial boxMaterial;
-    private final StoredMaterial storedMaterial;
-    private final int volume;
+    private BoxSorting strategy;
 
-    private Box(Builder builder) {
-        this.boxMaterial = builder.boxMaterial;
-        this.storedMaterial = builder.storedMaterial;
-        this.volume = builder.volume;
-    }
-
-
-
-    @Override
-    public void sortByFirstField() {
-
+    public void setupSortingStrategy(BoxSorting strategy) {
+        this.strategy = strategy;
     }
 
     @Override
-    public void sortBySecondField() {
-
-    }
-
-    @Override
-    public void sortByThirdField() {
-
+    public int compareTo(Object o) {
+        Box obj = (Box) o;
+        return strategy.sort(this, obj);
     }
 
     @Override
     public String toString() {
-        return "Box{" +
+        return "BOX#" +
                 "boxMaterial=" + boxMaterial +
-                ", storedMaterial=" + storedMaterial +
-                ", volume=" + volume +
-                '}';
+                ";storedMaterial=" + storedMaterial +
+                ";volume=" + volume;
     }
 
-    public static class Builder{
-        private  BoxMaterial boxMaterial;
-        private  StoredMaterial storedMaterial;
-        private  int volume;
+    public void setBoxMaterial(BoxMaterial boxMaterial) {
+        this.boxMaterial = boxMaterial;
+    }
 
-        public Builder setBoxMaterial(BoxMaterial boxMaterial){
-            this.boxMaterial=boxMaterial;
-            return this;
-        }
-        public Builder setStoredMaterial(StoredMaterial storedMaterial){
-            this.storedMaterial=storedMaterial;
-            return this;
-        }
-        public Builder setVolume(int volume){
-            this.volume=volume;
-            return this;
-        }
+    public void setStoredMaterial(StoredMaterial storedMaterial) {
+        this.storedMaterial = storedMaterial;
+    }
 
-        public Box build(){
-            return new Box(this);
-        }
+    public void setVolume(Integer volume) {
+        this.volume = volume;
+    }
+
+    public BoxMaterial getBoxMaterial() {
+        return boxMaterial;
+    }
+
+    public StoredMaterial getStoredMaterial() {
+        return storedMaterial;
+    }
+
+    public Integer getVolume() {
+        return volume;
     }
 }

@@ -1,74 +1,55 @@
 package com.aston.entities;
-import com.aston.enums.Gender;
 
-public class Human implements Sortable {
-    private final String fullName;
-    private final int age;
-    private final Gender gender;
 
-    private Human(Builder builder){
-        this.fullName=builder.fullName;
-        this.age=builder.age;
-        this.gender=builder.gender;
-    }
+import com.aston.Data.enums.Gender;
+import com.aston.Sorting.Humans.HumanSortingRule;
 
-    public String getFullName(){
-        return fullName;
-    }
-    public int getAge(){
-        return age;
-    }
-    public Gender getGender(){
-        return gender;
+public class Human implements Comparable {
+    private String fullName;
+    private Integer age;
+    private Gender gender;
+
+    private HumanSortingRule strategy;
+
+    public void setupSortingStrategy(HumanSortingRule strategy) {
+        this.strategy = strategy;
     }
 
     @Override
-    public void sortByFirstField() {
-
-    }
-
-    @Override
-    public void sortBySecondField() {
-
-    }
-
-    @Override
-    public void sortByThirdField() {
-
+    public int compareTo(Object o) {
+        Human obj = (Human) o;
+        return strategy.sortByField(this, obj);
     }
 
     @Override
     public String toString() {
-        return "Human{" +
-                "fullName='" + fullName + '\'' +
-                ", age=" + age +
-                ", gender=" + gender +
-                '}';
+        return "HUMAN#" +
+                "fullName=" + fullName  +
+                ";age=" + age +
+                ";gender=" + gender;
     }
 
-public static class Builder {
-    private int age;
-    private String fullName;
-    private Gender gender;
-
-
-    public Builder setAge(int age) {
-        this.age = age;
-        return this;
-    }
-
-    public Builder setFullName(String fullName) {
+    public void setFullName(String fullName) {
         this.fullName = fullName;
-        return this;
     }
 
-    public Builder gender(Gender gender) {
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public void setGender(Gender gender) {
         this.gender = gender;
-        return this;
-        }
-        public Human build(){
-        return new Human(this);
-        }
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public Gender getGender() {
+        return gender;
     }
 }
-

@@ -3,7 +3,7 @@ package com.aston.utils;
 import java.util.List;
 
 public class BinarySearch<T extends Comparable<T>> {
-    public int search(List<T> list, T key){
+    public int searchByBinary(List<T> list, T key){
         int low=0;
         int high=list.size()-1;
 
