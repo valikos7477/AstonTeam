@@ -7,7 +7,7 @@ import com.aston.entities.Animal;
 import com.aston.entities.AnimalBuilder;
 
 public class AnimalHandler {
-    static Animal buildAnimal(String paramStr) {
+    public static Animal buildAnimal(String paramStr) {
         String[] params = paramStr.split(";");
         AnimalType animalType = AnimalType.fromString(params[0].split("=")[1]);
         EyeColor eyeColor = EyeColor.fromString(params[1].split("=")[1]);

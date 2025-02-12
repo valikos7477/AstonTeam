@@ -1,4 +1,4 @@
-package com.aston.entities.;
+package com.aston.entities;
 
 import com.aston.entities.Box;
 import com.aston.entities.BoxBuilder;
