@@ -1,13 +1,16 @@
-package com.aston.userio;
+package com.aston.uikit;
 
 import com.aston.datatypes.collections.CustomArrayList;
 import com.aston.datatypes.enums.EntityType;
+import com.aston.entities.BoxBuilder;
+import com.aston.uikit.controllers.AnimalViewController;
+import com.aston.uikit.controllers.BoxViewController;
+import com.aston.uikit.controllers.HumanViewController;
 import com.aston.utils.FileOperations;
 import com.aston.utils.RandomTools;
 import java.util.List;
 
 public abstract class DataSetGenerator {
-    private static  List<Comparable> elements;
 
     public static List<Comparable> inputMessage(String message) {
         List<Comparable> list = new CustomArrayList<>();
@@ -27,7 +30,21 @@ public abstract class DataSetGenerator {
         String inputFileName = (fileName.length == 2) ? fileName[1] : "";
 
         // - Manual input
-        //-->>>>
+        if (source == 1) {
+            for (int i = 0; i < numberOfElements; i++) {
+                if (entity == 1) {
+                    HumanViewController controller = new HumanViewController();
+                    list.add(controller.UIDialogHuman());
+                } else if (entity == 2) {
+                    AnimalViewController controller = new AnimalViewController();
+                    list.add(controller.UIDialogAnimal());
+                }
+                else {
+                    BoxViewController controller = new BoxViewController();
+                    list.add(controller.UIDialogBox());
+                }
+            }
+        }
 
         // - Random input
         if (source == 2) {

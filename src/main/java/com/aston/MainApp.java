@@ -1,7 +1,6 @@
 package com.aston;
 
-import com.aston.userio.DataSetGenerator;
-
+import com.aston.uikit.DataSetGenerator;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -13,7 +12,6 @@ public class MainApp {
     public static void main(String[] args) {
         //------Infinity loop---------
         for (;;) {
-
             Integer entityChoice = 0;
             Integer dataSourceChoice = 0;
             Integer numberOfElements = 0;
@@ -36,7 +34,6 @@ public class MainApp {
                 }
             }
             if (entityChoice == 0) System.exit(0);
-
 
             //------выбираем источник ввода------
             while (true) {
@@ -86,7 +83,6 @@ public class MainApp {
                 if (numberOfElements > 0) break;
             }
 
-
             String message = "entity=" + entityChoice +
                              "&source=" + dataSourceChoice +
                              "&num=" + numberOfElements +
@@ -94,11 +90,6 @@ public class MainApp {
 
             List<Comparable> elems = DataSetGenerator.inputMessage(message);
             elems.forEach(System.out::println);
-
         }
-
     }
 }
-
-
-
