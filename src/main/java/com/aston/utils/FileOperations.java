@@ -13,7 +13,7 @@ public abstract class FileOperations {
 
     private static final Logger LOGGER = Logger.getLogger(FileOperations.class.getName());
 
-    public static List<Comparable> loadFromFile(String inputFileName) {
+    public static List<Comparable> loadFromFile(EntityType mixed, int numberOfElements, String inputFileName) {
         List<Comparable> elements = new newArrayList<>();
 
         File file = new File(inputFileName);

@@ -2,6 +2,10 @@ package com.aston.utils;
 
 import java.util.concurrent.ThreadLocalRandom;
 import com.aston.Data.enums.*;
+import com.aston.Data.tools.newArrayList;
+import com.aston.entities.*;
+
+import java.util.List;
 
 public abstract class Randomer {
     private static final ThreadLocalRandom RANDOM = ThreadLocalRandom.current();
@@ -71,5 +75,48 @@ public abstract class Randomer {
         String firstName = firstNames[RANDOM.nextInt(firstNames.length)];
         String secondName = secondNames[RANDOM.nextInt(secondNames.length)];
         return firstName + " " + secondName;
+    }
+
+
+    public static Human getRandomHumanOne() {
+        HumanBuilder builder = new HumanBuilder();
+        return builder.randomBuild();
+    }
+
+    public static Animal getRandomAnimalOne() {
+        AnimalBuilder builder = new AnimalBuilder();
+        return builder.randomBuild();
+    }
+
+    public static Box getRandomBoxOne() {
+        BoxBuilder builder = new BoxBuilder();
+        return builder.randomBuild();
+    }
+
+    public static List<Comparable> getRandomHumanMany(int num) {
+        List<Comparable> humans = new newArrayList<>();
+        for (int i = 0; i < num; i++ ) {
+            Human human = getRandomHumanOne();
+            humans.add(human);
+        }
+        return humans;
+    }
+
+    public static List<Comparable> getRandomAnimalMany(int num) {
+        List<Comparable> animals = new newArrayList<>();
+        for (int i = 0; i < num; i++ ) {
+            Animal animal = getRandomAnimalOne();
+            animals.add(animal);
+        }
+        return animals;
+    }
+
+    public static List<Comparable> getRandomBoxMany(int num) {
+        List<Comparable> boxes = new newArrayList<>();
+        for (int i = 0; i < num; i++ ) {
+            Box box = getRandomBoxOne();
+            boxes.add(box);
+        }
+        return boxes;
     }
 }
