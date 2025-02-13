@@ -1,54 +1,55 @@
 package com.aston.entities;
 
-import com.aston.datatypes.enums.Gender;
-import com.aston.strategy.humans.HumanSortingRule;
+import com.aston.datatypes.enums.BoxMaterial;
+import com.aston.datatypes.enums.StoredMaterial;
+import com.aston.strategy.boxes.BoxSortingRule;
 
-public class Human implements Comparable {
-    private String fullName;
-    private Integer age;
-    private Gender gender;
+public class Box implements Comparable {
+    private BoxMaterial boxMaterial;
+    private StoredMaterial storedMaterial;
+    private Integer volume;
 
-    private HumanSortingRule strategy;
+    private BoxSortingRule strategy;
 
-    public void setupSortingStrategy(HumanSortingRule strategy) {
+    public void setupSortingStrategy(BoxSortingRule strategy) {
         this.strategy = strategy;
     }
 
     @Override
     public int compareTo(Object o) {
-        Human obj = (Human) o;
+        Box obj = (Box) o;
         return strategy.doSortingByField(this, obj);
     }
 
     @Override
     public String toString() {
-        return "HUMAN#" +
-                "fullName=" + fullName  +
-                ";age=" + age +
-                ";gender=" + gender;
+        return "BOX#" +
+                "boxMaterial=" + boxMaterial +
+                ";storedMaterial=" + storedMaterial +
+                ";volume=" + volume;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setBoxMaterial(BoxMaterial boxMaterial) {
+        this.boxMaterial = boxMaterial;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setStoredMaterial(StoredMaterial storedMaterial) {
+        this.storedMaterial = storedMaterial;
     }
 
-    public void setGender(Gender gender) {
-        this.gender = gender;
+    public void setVolume(Integer volume) {
+        this.volume = volume;
     }
 
-    public String getFullName() {
-        return fullName;
+    public BoxMaterial getBoxMaterial() {
+        return boxMaterial;
     }
 
-    public Integer getAge() {
-        return age;
+    public StoredMaterial getStoredMaterial() {
+        return storedMaterial;
     }
 
-    public Gender getGender() {
-        return gender;
+    public Integer getVolume() {
+        return volume;
     }
 }
