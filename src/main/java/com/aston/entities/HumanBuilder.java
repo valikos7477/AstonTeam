@@ -9,6 +9,10 @@ public class HumanBuilder {
     private Integer age;
     private Gender gender;
 
+    public static HumanBuilder create(){
+        return new HumanBuilder();
+    }
+
     public HumanBuilder setupFullName(String fullName) {
         this.fullName = fullName;
         return this;

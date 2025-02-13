@@ -10,6 +10,11 @@ public class BoxBuilder {
     private StoredMaterial storedMaterial;
     private Integer volume;
 
+
+    public static BoxBuilder create(){
+        return new BoxBuilder();
+    }
+
     public BoxBuilder setupBoxMaterial(BoxMaterial boxMaterial) {
         this.boxMaterial = boxMaterial;
         return this;

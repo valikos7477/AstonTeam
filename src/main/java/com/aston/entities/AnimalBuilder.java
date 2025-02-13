@@ -12,6 +12,10 @@ public class AnimalBuilder {
     private Integer weight;
     private Boolean isFur;
 
+
+    public static AnimalBuilder create() {
+        return new AnimalBuilder();
+    }
     public AnimalBuilder setupType(AnimalType type) {
         this.type = type;
         return this;

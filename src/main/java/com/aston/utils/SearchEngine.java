@@ -3,7 +3,7 @@ package com.aston.utils;
 import com.aston.Data.enums.SortingMode;
 import java.util.List;
 
-public abstract class Searcher {
+public abstract class SearchEngine {
 
     /**
      * Поиск элемента в списке с использованием бинарного поиска.

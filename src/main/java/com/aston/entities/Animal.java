@@ -50,6 +50,9 @@ public class Animal implements Comparable {
     public Integer getWeight() {
         return weight;
     }
+    public Boolean getFur(){
+        return isFur;
+    }
 
     @Override
     public String toString() {

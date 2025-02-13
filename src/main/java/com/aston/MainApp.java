@@ -18,6 +18,7 @@ public class MainApp {
     private static final Logger LOGGER = Logger.getLogger(MainApp.class.getName());
     private static final Scanner SCANNER = new Scanner(System.in);
 
+
     public static void main(String[] args) {
         while (true) {
             try {
