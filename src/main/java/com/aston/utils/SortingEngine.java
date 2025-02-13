@@ -1,5 +1,6 @@
 package com.aston.utils;
 
+import com.aston.Data.enums.Sorter;
 import com.aston.Data.enums.SortingMode;
 import com.aston.entities.Animal;
 import com.aston.entities.Box;

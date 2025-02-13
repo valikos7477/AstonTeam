@@ -1,10 +1,7 @@
 package com.aston.utils;
 
-import com.aston.Data.enums.Sorter;
-
-import java.util.Collections;
+import com.aston.Data.enums.SortingMode;
 import java.util.List;
-
 
 public abstract class Searcher {
 
@@ -16,7 +13,7 @@ public abstract class Searcher {
      * @param mode Режим сортировки (по возрастанию или убыванию).
      * @return Индекс элемента в списке или -1, если элемент не найден.
      */
-    public static <T extends Comparable<T>> int search(List<T> list, T key, Sorter mode) {
+    public static <T extends Comparable<T>> int search(List<T> list, T key, SortingMode mode) {
         if (list == null || list.isEmpty()) {
             return -1; // Если список пуст, возвращаем -1
         }
@@ -24,8 +21,9 @@ public abstract class Searcher {
         // Сортируем список в соответствии с выбранным режимом
         SortingEngine.sort(list, mode);
 
-        // Используем встроенный бинарный поиск для нахождения элемента
-        int index = Collections.binarySearch(list, key, mode.getComparator());
+        // Создаем объект BinarySearch и выполняем поиск
+        BinarySearch<T> binarySearch = new BinarySearch<>(list, mode.getComparator());
+        int index = binarySearch.search(key);
 
         // Если индекс отрицательный, элемент не найден
         return index >= 0 ? index : -1;
