@@ -1,72 +1,61 @@
 package com.aston.entities;
 
-import com.aston.enums.AnimalType;
-import com.aston.enums.EyeColor;
+import com.aston.datatypes.enums.AnimalType;
+import com.aston.datatypes.enums.EyeColor;
+import com.aston.strategy.animals.AnimalSortingRule;
 
-public class Animal implements Sortable {
-    private final AnimalType animalType;
-    private final EyeColor eyeColor;
-    private final Integer weight;
-    private final Boolean isFur;
+public class Animal implements Comparable {
+    private AnimalType animalType;
+    private EyeColor eyeColor;
+    private Integer weight;
+    private Boolean isFur;
 
-    private Animal(Builder builder) {
-        this.animalType = builder.animalType;
-        this.eyeColor = builder.eyeColor;
-        this.weight = builder.weight;
-        this.isFur = builder.isFur;
-    }
+    private AnimalSortingRule strategy;
 
     @Override
-    public void sortByFirstField() {
-
+    public int compareTo(Object o) {
+        Animal obj = (Animal) o;
+        return strategy.doSortingByField(this, obj);
     }
 
-    @Override
-    public void sortBySecondField() {
-
+    public void setupSortingStrategy(AnimalSortingRule strategy) {
+        this.strategy = strategy;
     }
 
-    @Override
-    public void sortByThirdField() {
+    public void setAnimalType(AnimalType animalType) {
+        this.animalType = animalType;
+    }
 
+    public void setEyeColor(EyeColor eyeColor) {
+        this.eyeColor = eyeColor;
+    }
+
+    public void setWeight(Integer weight) {
+        this.weight = weight;
+    }
+
+    public void setFur(Boolean fur) {
+        isFur = fur;
+    }
+
+    public AnimalType getAnimalType() {
+        return animalType;
+    }
+
+    public EyeColor getEyeColor() {
+        return eyeColor;
+    }
+
+    public Integer getWeight() {
+        return weight;
     }
 
     @Override
     public String toString() {
-        return "Animal{" +
+        return "ANIMAL#" +
                 "animalType=" + animalType +
-                ", eyeColor=" + eyeColor +
-                ", weight=" + weight +
-                ", isFur=" + isFur +
-                '}';
+                ";eyeColor=" + eyeColor +
+                ";weight=" + weight +
+                ";isFur=" + isFur;
     }
-
-    public static class Builder{
-        private AnimalType animalType;
-        private EyeColor eyeColor;
-        private int weight;
-        private Boolean isFur;
-
-
-
-        public Builder setAnimalType(AnimalType animalType){
-            this.animalType=animalType;
-            return this;
-        }  public Builder setEyeColor(EyeColor eyeColor){
-            this.eyeColor=eyeColor;
-            return this;
-        }  public Builder setWeight (int weight){
-            this.weight=weight;
-            return this;
-        }  public Builder setIsFur(Boolean isFur){
-            this.isFur=isFur;
-            return this;
-        }
-
-        public Animal build(){
-            return new Animal(this);
-        }
-
-    }
-
 }
