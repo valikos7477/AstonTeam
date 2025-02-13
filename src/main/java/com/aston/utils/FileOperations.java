@@ -337,12 +337,11 @@ public abstract class FileOperations {
         elements.stream().forEach(element -> {
             try {
                 writer.write(element.toString() + '\n');
+                writer.flush();
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
         });
-        writer.flush();
         writer.close();
-
     }
 }

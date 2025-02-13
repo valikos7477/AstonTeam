@@ -2,7 +2,6 @@ package com.aston.uikit;
 
 import com.aston.datatypes.collections.CustomArrayList;
 import com.aston.datatypes.enums.EntityType;
-import com.aston.entities.BoxBuilder;
 import com.aston.uikit.controllers.AnimalViewController;
 import com.aston.uikit.controllers.BoxViewController;
 import com.aston.uikit.controllers.HumanViewController;
