@@ -1,66 +1,54 @@
 package com.aston.entities;
 
-import com.aston.enums.BoxMaterial;
-import com.aston.enums.StoredMaterial;
+import com.aston.datatypes.enums.Gender;
+import com.aston.strategy.humans.HumanSortingRule;
 
-public class Box implements Sortable {
+public class Human implements Comparable {
+    private String fullName;
+    private Integer age;
+    private Gender gender;
 
-    private final BoxMaterial boxMaterial;
-    private final StoredMaterial storedMaterial;
-    private final int volume;
+    private HumanSortingRule strategy;
 
-    private Box(Builder builder) {
-        this.boxMaterial = builder.boxMaterial;
-        this.storedMaterial = builder.storedMaterial;
-        this.volume = builder.volume;
-    }
-
-
-
-    @Override
-    public void sortByFirstField() {
-
+    public void setupSortingStrategy(HumanSortingRule strategy) {
+        this.strategy = strategy;
     }
 
     @Override
-    public void sortBySecondField() {
-
-    }
-
-    @Override
-    public void sortByThirdField() {
-
+    public int compareTo(Object o) {
+        Human obj = (Human) o;
+        return strategy.doSortingByField(this, obj);
     }
 
     @Override
     public String toString() {
-        return "Box{" +
-                "boxMaterial=" + boxMaterial +
-                ", storedMaterial=" + storedMaterial +
-                ", volume=" + volume +
-                '}';
+        return "HUMAN#" +
+                "fullName=" + fullName  +
+                ";age=" + age +
+                ";gender=" + gender;
     }
 
-    public static class Builder{
-        private  BoxMaterial boxMaterial;
-        private  StoredMaterial storedMaterial;
-        private  int volume;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
 
-        public Builder setBoxMaterial(BoxMaterial boxMaterial){
-            this.boxMaterial=boxMaterial;
-            return this;
-        }
-        public Builder setStoredMaterial(StoredMaterial storedMaterial){
-            this.storedMaterial=storedMaterial;
-            return this;
-        }
-        public Builder setVolume(int volume){
-            this.volume=volume;
-            return this;
-        }
+    public void setAge(Integer age) {
+        this.age = age;
+    }
 
-        public Box build(){
-            return new Box(this);
-        }
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public Gender getGender() {
+        return gender;
     }
 }
