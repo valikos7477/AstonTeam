@@ -1,6 +1,11 @@
 package com.aston;
 
 import com.aston.uikit.DataSetGenerator;
+import com.aston.uikit.manipulators.AbstractDataManipulator;
+import com.aston.uikit.manipulators.AnimalDataManipulator;
+import com.aston.uikit.manipulators.BoxDataManipulator;
+import com.aston.uikit.manipulators.HumanDataManipulator;
+
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -88,8 +93,19 @@ public class MainApp {
                              "&num=" + numberOfElements +
                              "&filename=" + inputFileName;
 
-            List<Comparable> elems = DataSetGenerator.inputMessage(message);
-            elems.forEach(System.out::println);
+            List<Comparable> elements = DataSetGenerator.inputMessage(message);
+            //elements.forEach(System.out::println);
+            if (entityChoice == 1) {
+                AbstractDataManipulator manipulator = new HumanDataManipulator(elements);
+                manipulator.manipulateCollection();
+            } else if (entityChoice == 2) {
+                AbstractDataManipulator manipulator = new AnimalDataManipulator(elements);
+                manipulator.manipulateCollection();
+            }
+            else if (entityChoice == 3) {
+                AbstractDataManipulator manipulator = new BoxDataManipulator(elements);
+                manipulator.manipulateCollection();
+            }
         }
     }
 }

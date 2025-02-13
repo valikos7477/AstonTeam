@@ -330,21 +330,19 @@ public abstract class FileOperations {
 
     public static void saveToFile(List<Comparable> elements,
                                   String outFileName,
-                                  Boolean isAppend) {
-        try {
-            File output = new File(outFileName);
-            FileWriter writer = new FileWriter(output, isAppend);
-            elements.stream().forEach(element -> {
-                try {
-                    writer.write(element.toString() + '\n');
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            });
-            writer.flush();
-            writer.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+                                  Boolean isAppend) throws IOException {
+
+        File output = new File(outFileName);
+        FileWriter writer = new FileWriter(output, isAppend);
+        elements.stream().forEach(element -> {
+            try {
+                writer.write(element.toString() + '\n');
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+        writer.flush();
+        writer.close();
+
     }
 }
